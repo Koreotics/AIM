@@ -1,0 +1,140 @@
+import java.util.*;
+import java.awt.Canvas;
+import javax.swing.JFrame;
+import java.util.Random;
+
+
+public class MinesweeperApp {
+ 
+  public static void main(String[] args) {
+    System.out.println("This is where the application begins");
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+public class Grid {
+  // has multiple squares
+  JFrame grid = new JFrame();
+  
+  private Square[][] grid;
+  private int bombCount;
+  private int remainingCount;
+  
+  // initiating grid
+  public Grid(int bombCount, int height, int width) {
+    this.bombCount = bombCount;
+    this.grid = new Square[height][width];
+    
+    
+    // initiating square
+    for(int i = 0; i < height; i++) {
+      for int j = 0; j < width; j++) {
+        grid[i][j] = new Square(i,j);
+      }
+    }
+    
+    // create bomb
+    
+    for(int i = 1; i <= bombCount; i++) {
+      Random randX = new Random();
+      Random randY = new Random();
+      
+      int x = randX.nextInt(width) + 0;
+      int y = randY.nextInt(height) + 0;
+      
+      grid[x][y] = new Bomb(x,y);
+      
+      // increment adjacent square's number by one
+      
+    }
+  }
+  
+}
+
+public class Square {
+  // can represent a bomb, a number or an empty space
+  private String stringRep; // x = bomb, # = numbered , - = empty
+  private int x, y; // coordinates
+  private int adjBombs;
+  private ArrayList<Squares> neighbours;
+	private boolean clicked;
+  
+  // CONSTRUCTORS
+  public Square() {}
+  
+  public Square(int x, int y) {
+    this.x = x;
+    this.y = y;
+    this.adjBombs = 0;
+    this.clicked = false;
+    this.stringRep = "";
+  }
+  
+  public Square(String rep, int x, int y) {
+    this(x,y);
+    this.stringRep = rep;
+  }
+  
+  // ACCESSORS
+  public String getStringRep { retrurn this.stringRep; }
+  public int getX { return this.x; }
+  public int getY { return this.y; }
+
+  // GETTERS
+	public void setStringRep(String rep) { this.stringRep; }
+  public void setX(int x) { this.x = x; }
+  public void setY(int y) { this.y = y; }
+}
+
+public class Bomb extends Square {
+  // derives from square, represents a bomb.
+	
+  // Action: 
+  // 1. Current square highlighted in red
+  // 2. All bombs on map displayed
+  public Bomb(int x, int y) {
+    super(x,y);
+    super.stringRep = x;
+  }
+}
+
+public class Empty extends Square {
+  // derives from square, represents an empty space
+  
+  // Action: Expand and show all neighbouring numbers
+}
+
+public class numbered extends Square {
+  // derives from square, represents a number that counts the amount of neighbouring bombs.
+  
+	// Action: Show number
+}
+
+
+public class Timer {
+  // 
+  
+  
+}
+
+
+public class BombCount {
+  // Initial count is initial fixed bomb count 
+  // When right-click, square is flagged for bomb 
+}
+
+
+
+
+
+
