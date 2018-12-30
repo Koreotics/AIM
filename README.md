@@ -1,1 +1,1 @@
-# AIMInesweeper
+Artificial Intelligence for Minesweeper
