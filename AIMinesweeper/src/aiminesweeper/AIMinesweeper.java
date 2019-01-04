@@ -6,7 +6,7 @@ package aiminesweeper;
  * and complete the game in any difficulty. 
  * 
  * @author Tristan Borja & Vivian Xu
- * @version 1.0
+ * @version 0.2
  */
 
 public class AIMinesweeper {
