@@ -1,20 +1,18 @@
 package runemonitor;
 
 import java.util.ArrayList;
-import javafx.util.Pair;
 
 public class Rune {
 
     // FIELD VARIABLES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     private RuneSet set;
     private int slot, grade, level;
-    private Pair<StatType, Integer> main, prefix;
-    private ArrayList<Pair<StatType, Integer>> substats;
+    private Stat main, prefix;
+    private ArrayList<Stat> substats;
 
     // CONSTRUCTOR ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    public Rune(RuneSet set, int slot, int grade, int level, 
-            Pair<StatType, Integer> main, Pair<StatType, Integer> prefix, 
-            ArrayList<Pair<StatType, Integer>> substats) {
+    public Rune(RuneSet set, int slot, int grade, int level, Stat main, 
+            Stat prefix, ArrayList<Stat> substats) {
         this.set = set;
         this.slot = slot;
         this.grade = grade;
@@ -53,32 +51,6 @@ public class Rune {
 
         @Override
         public String toString() { return this.rarity; }
-    }
-
-    public enum StatType {
-        HP_FLAT("HP (+)", 300, 375), HP_PERC("HP %", 7, 8),
-        ATK_FLAT("ATK (+)", 15, 20), ATK_PERC("ATK %", 7, 8),
-        DEF_FLAT("DEF (+)", 15, 20), DEF_PERC("DEF %", 7, 8),
-        SPD("SPD (+)", 5, 6),
-        CRI_R("CRI Rate %", 5, 6), CRI_D("CRI Dmg %", 5, 7),
-        RES("RES %", 7, 8), ACC("ACC %", 7, 8);
-
-        private String type;
-        private int fiveMax, sixMax;
-
-        private StatType(String type, int five, int six) {
-            this.type = type;
-            this.fiveMax = five;
-            this.sixMax = six;
-        }
-
-        public int getFiveMax() { return this.fiveMax; }
-        public int getSixMax() { return this.sixMax; }
-
-        @Override
-        public String toString() {
-            return this.type;
-        }
     }
 
     public enum RuneSet {
