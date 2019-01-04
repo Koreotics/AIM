@@ -6,7 +6,7 @@ package runemonitor;
  * rune efficiency which represents the strength of the rune.
  * 
  * @author: Tristan Borja
- * @version: 0.1
+ * @version: 0.2
  */
 
 public class RuneMonitor {

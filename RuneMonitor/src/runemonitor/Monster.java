@@ -35,6 +35,7 @@ public class Monster {
     // TODO: add mutator that for setting all runes of the monster
     // TODO: add mutator that for setting a single rune
 
+    // UTILITIES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     @Override
     public String toString() {
     
