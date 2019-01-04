@@ -2,25 +2,22 @@ package aiminesweeper;
 
 import java.util.ArrayList;
 
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// SQUARE CLASS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 public class Square {
   
-    // FIELD VARIABLE~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// FIELD VARIABLES
     private String stringRep; // x = bomb, # = numbered , - = empty
     private int x, y; // coordinates
     private int adjBombs;
     private ArrayList<Square> neighbours;
     private boolean clicked;
   
-    // CONSTRUCTORS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // CONSTRUCTORS
     public Square(int x, int y) {
         this.x = x;
         this.y = y;
         this.adjBombs = 0;
         this.clicked = false;
-        this.stringRep = "";
+        this.stringRep = " ";
     }
   
     public Square(String rep, int x, int y) {
@@ -28,7 +25,7 @@ public class Square {
         this.stringRep = rep;
     }
   
-    // ACCESSORS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // ACCESSORS
     public String getStringRep() { return this.stringRep; }
     public int getX() { return this.x; }
     public int get()  { return this.y; }
