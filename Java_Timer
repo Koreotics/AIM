@@ -1,0 +1,83 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import javax.swing.Timer;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import java.awt.Font;
+
+public class Java_Timer extends JFrame {
+	
+	private JPanel contentPane;
+	Timer timer;
+	int i = 1;
+
+	/**
+	 * Launch the application.
+	 */
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Java_Timer frame = new Java_Timer();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Java_Timer() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 671, 490);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnStart = new JButton("Start");
+		btnStart.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				timer.start();
+			}
+		});
+		btnStart.setBounds(26, 145, 171, 41);
+		contentPane.add(btnStart);
+		
+		JButton btnStop = new JButton("Stop");
+		btnStop.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				timer.stop();
+			}
+		});
+		btnStop.setBounds(442, 145, 171, 41);
+		contentPane.add(btnStop);
+		
+		JLabel label = new JLabel("000");
+		label.setFont(new Font("DS-Digital", Font.PLAIN, 27));
+		label.setBounds(238, 123, 178, 85);
+		contentPane.add(label);
+		
+		timer = new Timer(1000, new ActionListener() { // +1 to timer every 1000ms
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				label.setText(String.format("%03d", i));
+				i++;
+				
+			}
+			
+		});
+		
+	}
+}
