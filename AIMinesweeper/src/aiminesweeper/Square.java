@@ -31,10 +31,16 @@ public class Square {
     public int get()  { return this.y; }
     public boolean isClicked() { return this.clicked; }
 
-    // GETTERS
+    // MUTATORS
     public void setStringRep(String rep) { this.stringRep = rep; }
-    public void setX(int x) { this.x = x; }
-    public void setY(int y) { this.y = y; }
-    public void toggle()    { this.clicked = !this.clicked; }
+    public void setX(int x)  { this.x = x; }
+    public void setY(int y)  { this.y = y; }
+    public void toggle()     { this.clicked = !this.clicked; }
+    
+    // UTILITIES
+    public void addAdjBomb() { 
+    	this.adjBombs++; 
+    	this.stringRep = Integer.toString(adjBombs);
+    }
 }
 

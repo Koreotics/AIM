@@ -3,11 +3,6 @@ package aiminesweeper;
 import java.util.Random;
 
 public class Grid {
-
-	public static void main(String[] args) {
-		Grid grid = new Grid(15, 15, 22);
-		System.out.println(grid.toString());
-	}
 	
 	// FIELD VARIABLES
 	private Square[][] gridSquares;
@@ -26,6 +21,9 @@ public class Grid {
 	}
 
 	// ACCESSORS
+	public String getSquareString(int x, int y) { 
+		return gridSquares[x][y].getStringRep(); 
+	}
 	
 	// UTILITIES
 	
@@ -37,8 +35,8 @@ public class Grid {
 		for(int i = 1; i <= totalBombs; i++) {
 			Random randX = new Random();
 		    Random randY = new Random();  
-		    int x = randX.nextInt(width-1) + 0;
-		    int y = randY.nextInt(height-1) + 0;
+		    int x = randX.nextInt(width-1);
+		    int y = randY.nextInt(height-1);
 		    
 //		    System.out.print("x: (" + x + ", " + y + "). ");
 		    
@@ -61,14 +59,12 @@ public class Grid {
 			    		  
 				    		// adjacent squares are empty
 				    		if(adjSquare == null) {
-				    			gridSquares[adjX][adjY] = new Square("1", adjX, adjY);
+				    			gridSquares[adjX][adjY] = new Square(adjX, adjY);
+				    			gridSquares[adjX][adjY].addAdjBomb();
 				    			
 			    			// adjacent squares are not empty and are not bombs
-				    		} else if(!adjSquare.getStringRep().equals("x")) {
-				    			int bombCount = 
-				    					Integer.parseInt(adjSquare.getStringRep());
-				    			bombCount++;
-				    			gridSquares[adjX][adjY].setStringRep("" + bombCount);
+				    		} else if(!adjSquare.getStringRep().equals("x")) {				    			
+				    			gridSquares[adjX][adjY].addAdjBomb();
 				    		}
 			    		}
 			    	}
